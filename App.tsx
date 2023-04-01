@@ -1,5 +1,4 @@
 import React from 'react'
-import { Text } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import { ThemeProvider } from 'styled-components'
 import {
@@ -7,6 +6,8 @@ import {
   NunitoSans_400Regular,
   NunitoSans_700Bold
 } from '@expo-google-fonts/nunito-sans'
+import theme from './src/styles/theme'
+import { Hello } from './src/components/Hello'
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -19,9 +20,9 @@ export default function App() {
   }
 
   return (
-    <ThemeProvider theme={{}}>
+    <ThemeProvider theme={theme}>
       <StatusBar style="light" backgroundColor="transparent" translucent />
-      <Text>Hello</Text>
+      <Hello />
     </ThemeProvider>
   )
 }
