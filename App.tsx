@@ -6,8 +6,9 @@ import {
   NunitoSans_400Regular,
   NunitoSans_700Bold
 } from '@expo-google-fonts/nunito-sans'
+
 import theme from './src/styles/theme'
-import { Hello } from './src/components/Hello'
+import { Routes } from './src/routes'
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -22,7 +23,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <StatusBar style="light" backgroundColor="transparent" translucent />
-      <Hello />
+      <Routes />
     </ThemeProvider>
   )
 }
