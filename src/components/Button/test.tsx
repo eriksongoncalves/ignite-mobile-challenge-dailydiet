@@ -1,5 +1,4 @@
 import React from 'react'
-import { Plus } from 'phosphor-react-native'
 
 import { render, fireEvent } from '@utils/testHelper'
 import { Button } from './'
@@ -7,7 +6,7 @@ import { View } from 'react-native'
 
 const mockFn = jest.fn()
 
-describe('Button componenet', () => {
+describe('Button component', () => {
   it('should render a solid button by default', () => {
     const { getByTestId, getByText } = render(
       <Button text="My Button" onPress={mockFn} testID="button" />
@@ -41,15 +40,7 @@ describe('Button componenet', () => {
 
   it('should render a button with icon', () => {
     const { getByTestId } = render(
-      <Button
-        text="My Button"
-        onPress={mockFn}
-        Icon={
-          <View testID="icon">
-            <Plus color="white" size={18} />
-          </View>
-        }
-      />
+      <Button text="My Button" onPress={mockFn} Icon={<View testID="icon" />} />
     )
 
     const icon = getByTestId('icon')
