@@ -1,9 +1,7 @@
 import React from 'react'
 import { View } from 'react-native'
-import { Plus } from 'phosphor-react-native'
 
-import { Button } from '@components/Button'
-import { ImageProfile } from '@components/ImageProfile'
+import { CardText } from '@components/CardText'
 
 export const Home = () => {
   return (
@@ -12,11 +10,15 @@ export const Home = () => {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        padding: 24
       }}
     >
-      <Button text="Label" Icon={<Plus color="white" size={18} />} />
-      <ImageProfile uri="https://randomuser.me/api/portraits/thumb/men/75.jpg" />
+      <CardText
+        title="90,86%"
+        subtitle="melhor sequência de pratos dentro da dieta"
+        color="red"
+      />
     </View>
   )
 }
