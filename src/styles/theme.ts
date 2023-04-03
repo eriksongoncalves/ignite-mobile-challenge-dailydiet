@@ -1,3 +1,5 @@
+import { css } from 'styled-components/native'
+
 export default {
   fonts: {
     family: {
@@ -5,7 +7,11 @@ export default {
         regular: 'NunitoSans_400Regular',
         bold: 'NunitoSans_700Bold'
       }
-    }
+    },
+    size: (fontSize: number) => css`
+      font-size: ${fontSize}px
+      line-height: ${fontSize * (130 / 100)}px
+    `
   },
   colors: {
     redLight: '#F4E6E7',
