@@ -8,8 +8,8 @@ describe('MealList component', () => {
   it('should render with a default uri', () => {
     const { getByTestId } = render(<MealList meals={mealsMock} />)
 
-    const image = getByTestId('mealList')
+    const list = getByTestId('mealList')
 
-    expect(image).toBeTruthy()
+    expect(list).toBeTruthy()
   })
 })
