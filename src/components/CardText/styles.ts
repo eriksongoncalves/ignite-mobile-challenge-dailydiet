@@ -40,6 +40,7 @@ export const Subtitle = styled.Text`
     font-family: ${theme.fonts.family.nunitoSans.regular};
     ${theme.fonts.size(14)};
     color: ${theme.colors.gray2};
+    text-align: center;
   `}
 `
 

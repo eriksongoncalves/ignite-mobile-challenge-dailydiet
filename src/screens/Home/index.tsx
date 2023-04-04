@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigation } from '@react-navigation/native'
 import { useTheme } from 'styled-components'
 import { Plus } from 'phosphor-react-native'
 
@@ -12,6 +13,7 @@ import { CardText } from '@components/CardText'
 
 export const Home = () => {
   const { colors } = useTheme()
+  const navigation = useNavigation()
 
   return (
     <S.Wrapper>
@@ -26,7 +28,7 @@ export const Home = () => {
           <CardText
             title="90,86%"
             subtitle="das refeições dentro da dieta"
-            onPress={() => {}}
+            onPress={() => navigation.navigate('summary')}
           />
         </S.CardTextWrapper>
 
@@ -35,6 +37,7 @@ export const Home = () => {
           <Button
             text="Nova refeição"
             Icon={<Plus size={20} color={colors.white} />}
+            onPress={() => {}}
           />
         </S.NewMealWrapper>
 

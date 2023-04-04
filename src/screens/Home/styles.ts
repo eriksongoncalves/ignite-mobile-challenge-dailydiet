@@ -30,6 +30,7 @@ export const NewMealWrapper = styled.View`
   width: 100%;
   margin-bottom: 32px;
 `
+
 export const NewMealText = styled.Text`
   ${({ theme }) => css`
     font-family: ${theme.fonts.family.nunitoSans.regular};
