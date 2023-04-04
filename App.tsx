@@ -1,6 +1,7 @@
 import React from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { ThemeProvider } from 'styled-components'
+
 import {
   useFonts,
   NunitoSans_400Regular,
@@ -22,8 +23,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <StatusBar style="light" backgroundColor="transparent" translucent />
-
+      <StatusBar style="dark" backgroundColor="transparent" translucent />
       <Routes />
     </ThemeProvider>
   )

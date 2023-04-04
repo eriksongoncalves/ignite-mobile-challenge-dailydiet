@@ -5,10 +5,6 @@ export type StatusProps = {
   type: MealStatus
 }
 
-export const Wrapper = styled.View`
-  width: 100%;
-`
-
 export const Item = styled.View`
   ${({ theme }) => css`
     border-width: 1px;
@@ -35,7 +31,8 @@ export const SectionTitle = styled.Text`
     font-family: ${theme.fonts.family.nunitoSans.bold};
     ${theme.fonts.size(18)};
     color: ${theme.colors.gray1};
-    margin-bottom: 12px;
+    background: #fff;
+    padding-bottom: 12px;
   `}
 `
 

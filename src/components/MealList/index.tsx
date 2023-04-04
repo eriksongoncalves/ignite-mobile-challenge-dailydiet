@@ -27,25 +27,24 @@ export const MealList = ({ meals }: MealListProps) => {
   }, [meals])
 
   return (
-    <S.Wrapper testID="mealList">
-      <SectionList
-        showsVerticalScrollIndicator={false}
-        sections={mealsFormatted}
-        keyExtractor={item => item.id}
-        renderItem={({ item }) => (
-          <S.Item>
-            <S.Hour>
-              <Text>{item.hour}</Text>
-            </S.Hour>
-            <S.MealText>{item.title}</S.MealText>
-            <S.Status type={item.status} />
-          </S.Item>
-        )}
-        renderSectionHeader={({ section: { title } }) => (
-          <S.SectionTitle>{title}</S.SectionTitle>
-        )}
-        renderSectionFooter={() => <S.SectionFooterSpace />}
-      />
-    </S.Wrapper>
+    <SectionList
+      testID="mealList"
+      showsVerticalScrollIndicator={false}
+      sections={mealsFormatted}
+      keyExtractor={item => item.id}
+      renderItem={({ item }) => (
+        <S.Item>
+          <S.Hour>
+            <Text>{item.hour}</Text>
+          </S.Hour>
+          <S.MealText>{item.title}</S.MealText>
+          <S.Status type={item.status} />
+        </S.Item>
+      )}
+      renderSectionHeader={({ section: { title } }) => (
+        <S.SectionTitle>{title}</S.SectionTitle>
+      )}
+      renderSectionFooter={() => <S.SectionFooterSpace />}
+    />
   )
 }
