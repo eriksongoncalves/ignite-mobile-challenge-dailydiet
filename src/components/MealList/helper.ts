@@ -1,14 +1,7 @@
-import { Meal, MealStatus } from '@src/@types/global'
-
-export type MealInfo = {
-  id: string
-  title: string
-  hour: string
-  status: MealStatus
-}
+import { Meal } from '../../@types/global'
 
 type MealsGroupped = {
-  [key: string]: MealInfo[]
+  [key: string]: Meal[]
 }
 
 export const mealsOrderedByDateDesc = (meals: Meal[]) =>
@@ -28,14 +21,7 @@ export const mealsGrouppedByDateDesc = (meals: Meal[]) => {
       acc[date] = []
     }
 
-    acc[date].push({
-      id: meal.id,
-      title: meal.title,
-      hour: `${String(meal.date.getHours()).padStart(2, '0')}:${String(
-        meal.date.getMinutes()
-      ).padStart(2, '0')}`,
-      status: 'in'
-    } as MealInfo)
+    acc[date].push(meal)
 
     return acc
   }, {}) as MealsGroupped[]

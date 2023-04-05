@@ -3,7 +3,7 @@ import { SectionList, Text } from 'react-native'
 
 import * as S from './styles'
 import { Meal } from '@src/@types/global'
-import { MealInfo, mealsGrouppedByDateDesc } from './helper'
+import { mealsGrouppedByDateDesc } from './helper'
 
 type MealListProps = {
   meals: Meal[]
@@ -19,7 +19,7 @@ export const MealList = ({ meals }: MealListProps) => {
       return dates.map(date => ({
         title: date,
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        data: mealsGrouppedByDate[date as any] as unknown as MealInfo[]
+        data: mealsGrouppedByDate[date as any] as unknown as Meal[]
       }))
     }
 
@@ -37,7 +37,7 @@ export const MealList = ({ meals }: MealListProps) => {
           <S.Hour>
             <Text>{item.hour}</Text>
           </S.Hour>
-          <S.MealText>{item.title}</S.MealText>
+          <S.MealText>{item.name}</S.MealText>
           <S.Status type={item.status} />
         </S.Item>
       )}

@@ -6,7 +6,7 @@ export type Meal = {
   id: string
   name: string
   description: string
-  date: string
+  date: Date
   hour: string
   status: MealStatus
 }

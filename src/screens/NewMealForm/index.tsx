@@ -8,7 +8,9 @@ import { Meal, MealStatus } from '../../@types/global'
 import { Input } from '@components/Input'
 import { Button } from '@components/Button'
 
-type FormData = Omit<Meal, 'id'>
+type FormData = Omit<Meal, 'id' | 'date'> & {
+  date: string
+}
 
 export const NewMealForm = () => {
   const navigation = useNavigation()
