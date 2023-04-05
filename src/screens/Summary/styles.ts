@@ -1,6 +1,6 @@
-import { ThemeColors } from '@src/@types/global'
 import { TouchableOpacity } from 'react-native'
 import styled, { css } from 'styled-components/native'
+import { ThemeColors } from '../../@types/global'
 
 type WrapperProps = {
   color: 'green' | 'red'

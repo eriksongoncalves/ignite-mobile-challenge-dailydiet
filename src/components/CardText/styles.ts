@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components/native'
-import { CardTextColors } from '.'
-import { ThemeColors } from '@src/@types/global'
 import { ArrowUpRight } from 'phosphor-react-native'
+
+import { CardTextColors } from '.'
+import { ThemeColors } from '../../@types/global'
 
 type WrapperProps = {
   color: CardTextColors

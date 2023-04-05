@@ -16,9 +16,13 @@ export const NewMealForm = () => {
   const navigation = useNavigation()
   const { handleSubmit, control } = useForm<FormData>({})
 
-  const handleNewMeal = useCallback((data: FormData) => {
-    console.log('>>> data', data)
-  }, [])
+  const handleNewMeal = useCallback(
+    (data: FormData) => {
+      console.log('>>> data', data)
+      navigation.navigate('newMealFormFinish', { status: data.status })
+    },
+    [navigation]
+  )
 
   return (
     <S.Wrapper>
@@ -85,7 +89,7 @@ export const NewMealForm = () => {
                     onPress={() => onChange(MealStatus.OUT)}
                   >
                     <S.OptionButtonsBullet color="red" />
-                    <S.OptionButtonText>Sim</S.OptionButtonText>
+                    <S.OptionButtonText>Não</S.OptionButtonText>
                   </S.OptionButton>
                 </S.OptionButtonsWrapper>
               )}

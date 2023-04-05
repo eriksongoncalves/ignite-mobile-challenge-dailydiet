@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components/native'
-import { MealStatus } from '@src/@types/global'
+import { MealStatus } from '../../@types/global'
 
 export type StatusProps = {
   type: MealStatus
