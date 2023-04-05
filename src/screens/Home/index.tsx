@@ -37,7 +37,7 @@ export const Home = () => {
           <Button
             text="Nova refeição"
             Icon={<Plus size={20} color={colors.white} />}
-            onPress={() => {}}
+            onPress={() => navigation.navigate('newMealForm')}
           />
         </S.NewMealWrapper>
 

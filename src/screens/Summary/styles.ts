@@ -37,8 +37,8 @@ export const Content = styled.View`
     flex: 1;
     background-color: ${theme.colors.white};
     padding: 24px;
-    border-top-right-radius: 20;
-    border-top-left-radius: 20;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
   `}
 `
 
