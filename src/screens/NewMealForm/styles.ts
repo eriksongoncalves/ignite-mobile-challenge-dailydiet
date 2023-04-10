@@ -75,6 +75,7 @@ export const OptionLabel = styled.Text`
 export const OptionButtonsWrapper = styled.View`
   flex-direction: row;
   gap: 8px;
+  margin-bottom: 5px;
 `
 export const OptionButton = styled(TouchableOpacity)<{
   color: 'green' | 'red'

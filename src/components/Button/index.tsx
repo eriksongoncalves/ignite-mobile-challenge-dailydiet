@@ -24,6 +24,7 @@ export const Button = ({
       isActive={isActive}
       outline={outline}
       fullWidth={fullWidth}
+      isDisabled={!!rest?.disabled}
       {...rest}
     >
       {Icon && Icon}

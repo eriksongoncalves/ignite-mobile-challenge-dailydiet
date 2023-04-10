@@ -2,23 +2,28 @@ import React, { useCallback } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { ArrowLeft } from 'phosphor-react-native'
 import { useForm, Controller } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 import * as S from './styles'
-import { Meal, MealStatus } from '../../@types/global'
+import { NewMealFormData, schemaValidation } from './schema-validation'
+import { MealStatus } from '../../@types/global'
 import { Input } from '@components/Input'
 import { Button } from '@components/Button'
-
-type FormData = Omit<Meal, 'id' | 'date'> & {
-  date: string
-}
+import { ErrorMessage } from '@components/ErrorMessage'
 
 export const NewMealForm = () => {
   const navigation = useNavigation()
-  const { handleSubmit, control } = useForm<FormData>({})
+  const {
+    handleSubmit,
+    control,
+    formState: { errors, isValid }
+  } = useForm<NewMealFormData>({
+    resolver: zodResolver(schemaValidation),
+    mode: 'all'
+  })
 
   const handleNewMeal = useCallback(
-    (data: FormData) => {
-      console.log('>>> data', data)
+    (data: NewMealFormData) => {
       navigation.navigate('newMealFormFinish', { status: data.status })
     },
     [navigation]
@@ -35,7 +40,12 @@ export const NewMealForm = () => {
 
       <S.Content>
         <S.Form>
-          <Input control={control} name="name" label="Nome" />
+          <Input
+            control={control}
+            name="name"
+            label="Nome"
+            errorMessage={errors.name?.message}
+          />
 
           <Input
             control={control}
@@ -43,6 +53,7 @@ export const NewMealForm = () => {
             label="Descrição"
             style={{ height: 120 }}
             multiline
+            errorMessage={errors.description?.message}
           />
 
           <S.FlexRow>
@@ -52,7 +63,9 @@ export const NewMealForm = () => {
                 name="date"
                 label="Data"
                 keyboardType="numbers-and-punctuation"
-                maxLength={5}
+                maxLength={10}
+                errorMessage={errors.date?.message}
+                placeholder="dd/mm/yyyy"
               />
             </S.InputWrapper>
 
@@ -63,6 +76,8 @@ export const NewMealForm = () => {
                 label="Hora"
                 keyboardType="numbers-and-punctuation"
                 maxLength={5}
+                errorMessage={errors.hour?.message}
+                placeholder="hh:mm"
               />
             </S.InputWrapper>
           </S.FlexRow>
@@ -94,12 +109,14 @@ export const NewMealForm = () => {
                 </S.OptionButtonsWrapper>
               )}
             />
+            <ErrorMessage message={errors.status?.message} />
           </S.OptionsWrapper>
         </S.Form>
 
         <Button
           text="Cadastrar refeição"
           onPress={handleSubmit(handleNewMeal)}
+          disabled={!isValid}
         />
       </S.Content>
     </S.Wrapper>

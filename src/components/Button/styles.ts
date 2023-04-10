@@ -2,7 +2,9 @@ import styled, { css, DefaultTheme } from 'styled-components/native'
 import { ButtonProps } from './'
 import { TouchableOpacity } from 'react-native'
 
-type WrapperProps = Pick<ButtonProps, 'isActive' | 'outline' | 'fullWidth'>
+type WrapperProps = Pick<ButtonProps, 'isActive' | 'outline' | 'fullWidth'> & {
+  isDisabled: boolean
+}
 
 type TextProps = Pick<ButtonProps, 'outline'>
 
@@ -15,11 +17,14 @@ const wrapperModifiers = {
   `,
   fullWidth: css`
     width: 100%;
+  `,
+  disabled: () => css`
+    opacity: 0.7;
   `
 }
 
 export const Wrapper = styled(TouchableOpacity)<WrapperProps>`
-  ${({ theme, isActive, outline, fullWidth }) => css`
+  ${({ theme, isActive, outline, fullWidth, isDisabled }) => css`
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -32,6 +37,7 @@ export const Wrapper = styled(TouchableOpacity)<WrapperProps>`
     ${!!outline && wrapperModifiers.outline};
     ${!!fullWidth && wrapperModifiers.fullWidth};
     ${!!isActive && wrapperModifiers.active(theme, !!outline)};
+    ${isDisabled && wrapperModifiers.disabled()}
   `}
 `
 
