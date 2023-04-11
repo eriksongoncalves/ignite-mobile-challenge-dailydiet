@@ -9,6 +9,8 @@
       "@styles/*": ["./src/styles/*"],
       "@utils/*": ["./src/utils/*"],
       "@mocks/*": ["./src/mocks/*"],
+      "@storage/*": ["./src/storage/*"],
+      "@hooks/*": ["./src/hooks/*"],
     },
     "allowJs": true,
     "allowSyntheticDefaultImports": true,

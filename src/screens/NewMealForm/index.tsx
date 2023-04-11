@@ -10,6 +10,7 @@ import { MealStatus } from '../../@types/global'
 import { Input } from '@components/Input'
 import { Button } from '@components/Button'
 import { ErrorMessage } from '@components/ErrorMessage'
+import { saveMeal } from '@storage/meals'
 
 export const NewMealForm = () => {
   const navigation = useNavigation()
@@ -23,8 +24,17 @@ export const NewMealForm = () => {
   })
 
   const handleNewMeal = useCallback(
-    (data: NewMealFormData) => {
-      navigation.navigate('newMealFormFinish', { status: data.status })
+    async (data: NewMealFormData) => {
+      try {
+        await saveMeal({
+          id: String(Date.now()),
+          ...data
+        })
+        navigation.navigate('newMealFormFinish', { status: data.status })
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.log('>>> NewMealForm Error', e)
+      }
     },
     [navigation]
   )

@@ -15,7 +15,7 @@ export const schemaValidation = z.object({
     .transform(value => {
       const [day, month, year] = value.split('/')
 
-      return new Date(`${year}-${month}-${day}`)
+      return new Date(+year, +month - 1, +day)
     }),
   hour: z
     .string({ required_error: '' })

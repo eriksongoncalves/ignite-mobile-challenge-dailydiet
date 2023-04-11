@@ -14,7 +14,9 @@ module.exports = function (api) {
             '@screens': './src/screens',
             '@styles': './src/styles',
             '@utils': './src/utils',
-            '@mocks': './src/mocks'
+            '@mocks': './src/mocks',
+            '@storage': './src/storage',
+            '@hooks': './src/hooks'
           }
         }
       ]
